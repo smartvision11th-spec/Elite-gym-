@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ELITE GYM - Transform your body with premium 3D fitness experience. 5000+ members, 50+ trainers, 24/7 access, 98% success rate.">
+    <meta name="keywords" content="gym, fitness, elite, premium, training, bodybuilding, transformation">
+    <meta name="author" content="Elite Gym">
+    <meta property="og:title" content="ELITE GYM - Forge Your Elite Body">
+    <meta property="og:description" content="Premium 3D fitness experience with world-class facilities and expert trainers.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&h=630&fit=crop">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#000000">
+    
+    <title>ELITE GYM - Forge Your Elite Body | Premium 3D Fitness</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- GSAP with ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.8/dist/lenis.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-text">ELITE</span>
+                <span class="logo-accent">GYM</span>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#pricing">PRICING</a></li>
+                <li><a href="#trainers">TRAINERS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            
+            <button class="cta-btn" id="navCta">JOIN NOW</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <canvas id="heroCanvas"></canvas>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-word">FORGE</span>
+                <span class="title-word">YOUR</span>
+                <span class="title-word">ELITE</span>
+                <span class="title-word">BODY</span>
+            </h1>
+            
+            <p class="hero-subtitle">Experience the future of fitness with world-class training and premium 3D visualization</p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="cta-btn">START YOUR JOURNEY</button>
+                <button class="btn btn-secondary" id="explore-btn">EXPLORE</button>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <p>SCROLL TO EXPLORE</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number" data-target="5000">5000</div>
+                <p class="stat-label">Elite Members</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="50">50</div>
+                <p class="stat-label">Expert Trainers</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="24">24</div>
+                <p class="stat-label">/7 Access</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="98">98</div>
+                <p class="stat-label">% Success Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>EXPERIENCE EXCELLENCE</h2>
+                <p>At Elite Gym, we don't just build bodies—we transform lives. With cutting-edge facilities, certified trainers, and personalized programs, your fitness goals become reality.</p>
+                <ul class="about-features">
+                    <li>💎 Premium Equipment & Technology</li>
+                    <li>🎯 Personalized Training Programs</li>
+                    <li>🏆 World-Class Facilities</li>
+                    <li>👥 Expert Coach Support</li>
+                </ul>
+            </div>
+            
+            <div class="about-images">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=500&fit=crop" alt="Gym Equipment">
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=500&h=500&fit=crop" alt="Training Session">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <h2 class="section-title">MEMBERSHIP PLANS</h2>
+        
+        <div class="pricing-container">
+            <div class="price-card">
+                <h3>BASIC</h3>
+                <div class="price-value">₹999<span>/month</span></div>
+                <ul class="price-features">
+                    <li>✓ Access to gym</li>
+                    <li>✓ Equipment usage</li>
+                    <li>✓ Locker facility</li>
+                    <li>✗ Personal trainer</li>
+                </ul>
+                <button class="price-btn">CHOOSE PLAN</button>
+            </div>
+            
+            <div class="price-card elite">
+                <div class="elite-badge">MOST POPULAR</div>
+                <h3>ELITE</h3>
+                <div class="price-value">₹4999<span>/month</span></div>
+                <ul class="price-features">
+                    <li>✓ Full gym access</li>
+                    <li>✓ Personal trainer</li>
+                    <li>✓ Nutrition plan</li>
+                    <li>✓ Progress tracking</li>
+                </ul>
+                <button class="price-btn elite-btn">START ELITE</button>
+            </div>
+            
+            <div class="price-card">
+                <h3>CHAMPION</h3>
+                <div class="price-value">₹9999<span>/month</span></div>
+                <ul class="price-features">
+                    <li>✓ VIP access</li>
+                    <li>✓ Dedicated trainer</li>
+                    <li>✓ Custom nutrition</li>
+                    <li>✓ 1-on-1 coaching</li>
+                </ul>
+                <button class="price-btn">UPGRADE NOW</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section id="trainers" class="trainers">
+        <h2 class="section-title">MEET OUR ELITE TRAINERS</h2>
+        
+        <div class="trainers-grid">
+            <div class="trainer-card">
+                <div class="trainer-image">
+                    <img src="https://images.unsplash.com/photo-1552072092-74c88e17235f?w=400&h=500&fit=crop" alt="Trainer Alex">
+                </div>
+                <h3>ALEX HUNTER</h3>
+                <p class="trainer-role">Strength & Conditioning</p>
+                <div class="trainer-socials">
+                    <a href="#" class="social-link">IG</a>
+                    <a href="#" class="social-link">FB</a>
+                </div>
+            </div>
+            
+            <div class="trainer-card">
+                <div class="trainer-image">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=500&fit=crop" alt="Trainer Sarah">
+                </div>
+                <h3>SARAH ELITE</h3>
+                <p class="trainer-role">Fitness Coach</p>
+                <div class="trainer-socials">
+                    <a href="#" class="social-link">IG</a>
+                    <a href="#" class="social-link">FB</a>
+                </div>
+            </div>
+            
+            <div class="trainer-card">
+                <div class="trainer-image">
+                    <img src="https://images.unsplash.com/photo-1579758629938-03607ccf1126?w=400&h=500&fit=crop" alt="Trainer Marcus">
+                </div>
+                <h3>MARCUS STRONG</h3>
+                <p class="trainer-role">Powerlifting Specialist</p>
+                <div class="trainer-socials">
+                    <a href="#" class="social-link">IG</a>
+                    <a href="#" class="social-link">FB</a>
+                </div>
+            </div>
+            
+            <div class="trainer-card">
+                <div class="trainer-image">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=400&h=500&fit=crop" alt="Trainer Emma">
+                </div>
+                <h3>EMMA WELLNESS</h3>
+                <p class="trainer-role">Yoga & Recovery</p>
+                <div class="trainer-socials">
+                    <a href="#" class="social-link">IG</a>
+                    <a href="#" class="social-link">FB</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformations Section -->
+    <section id="transformations" class="transformations">
+        <h2 class="section-title">TRANSFORMATION STORIES</h2>
+        
+        <div class="transformations-grid">
+            <div class="transformation-card">
+                <div class="before-after">
+                    <div class="before">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop" alt="Before">
+                        <p>BEFORE</p>
+                    </div>
+                    <div class="after">
+                        <img src="https://images.unsplash.com/photo-1552072092-74c88e17235f?w=300&h=400&fit=crop" alt="After">
+                        <p>AFTER</p>
+                    </div>
+                </div>
+                <h3>JOHN'S JOURNEY</h3>
+                <p class="transformation-time">6 Months Transformation</p>
+            </div>
+            
+            <div class="transformation-card">
+                <div class="before-after">
+                    <div class="before">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=400&fit=crop" alt="Before">
+                        <p>BEFORE</p>
+                    </div>
+                    <div class="after">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=300&h=400&fit=crop" alt="After">
+                        <p>AFTER</p>
+                    </div>
+                </div>
+                <h3>PRIYA'S DREAM</h3>
+                <p class="transformation-time">4 Months Transformation</p>
+            </div>
+            
+            <div class="transformation-card">
+                <div class="before-after">
+                    <div class="before">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=300&h=400&fit=crop" alt="Before">
+                        <p>BEFORE</p>
+                    </div>
+                    <div class="after">
+                        <img src="https://images.unsplash.com/photo-1579758629938-03607ccf1126?w=300&h=400&fit=crop" alt="After">
+                        <p>AFTER</p>
+                    </div>
+                </div>
+                <h3>RAJESH'S POWER</h3>
+                <p class="transformation-time">8 Months Transformation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities">
+        <h2 class="section-title">WORLD-CLASS FACILITIES</h2>
+        
+        <div class="facilities-grid">
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop" alt="Strength Zone">
+                <h3>STRENGTH ZONE</h3>
+                <p>Premium weightlifting equipment and power racks</p>
+            </div>
+            
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1552821551-7fdbe24cefd1?w=400&h=300&fit=crop" alt="Cardio Area">
+                <h3>CARDIO AREA</h3>
+                <p>State-of-the-art treadmills and cardio machines</p>
+            </div>
+            
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1540497077202-7d8d50f79e4e?w=400&h=300&fit=crop" alt="Sauna">
+                <h3>SAUNA & STEAM</h3>
+                <p>Relax and recover in our premium spa facilities</p>
+            </div>
+            
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=300&fit=crop" alt="Recovery">
+                <h3>RECOVERY ZONE</h3>
+                <p>Advanced stretching and recovery equipment</p>
+            </div>
+            
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop" alt="Yoga">
+                <h3>YOGA & FLEXIBILITY</h3>
+                <p>Dedicated studio for yoga and flexibility training</p>
+            </div>
+            
+            <div class="facility-card">
+                <img src="https://images.unsplash.com/photo-1564438624829-8e89e473b1c7?w=400&h=300&fit=crop" alt="Protein Café">
+                <h3>PROTEIN CAFÉ</h3>
+                <p>Premium nutrition café with healthy options</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes" class="classes">
+        <h2 class="section-title">ELITE CLASSES</h2>
+        
+        <div class="classes-grid">
+            <div class="class-card">
+                <div class="class-icon">⚡</div>
+                <h3>HIIT</h3>
+                <p>High Intensity Interval Training for maximum results</p>
+            </div>
+            
+            <div class="class-card">
+                <div class="class-icon">💪</div>
+                <h3>CROSSFIT</h3>
+                <p>Functional fitness combining strength and endurance</p>
+            </div>
+            
+            <div class="class-card">
+                <div class="class-icon">🥊</div>
+                <h3>BOXING</h3>
+                <p>Professional boxing technique and cardio training</p>
+            </div>
+            
+            <div class="class-card">
+                <div class="class-icon">🧘</div>
+                <h3>YOGA</h3>
+                <p>Mind-body wellness and flexibility enhancement</p>
+            </div>
+            
+            <div class="class-card">
+                <div class="class-icon">🏋️</div>
+                <h3>STRENGTH</h3>
+                <p>Progressive strength building and muscle growth</p>
+            </div>
+            
+            <div class="class-card">
+                <div class="class-icon">🏃</div>
+                <h3>CARDIO</h3>
+                <p>Heart-pounding cardio sessions for stamina</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BMI Calculator Section -->
+    <section id="bmi" class="bmi-section">
+        <div class="bmi-container">
+            <h2 class="section-title">BMI CALCULATOR</h2>
+            
+            <div class="bmi-calculator">
+                <div class="bmi-input-group">
+                    <label for="height">HEIGHT (cm)</label>
+                    <input type="number" id="height" placeholder="170" min="100" max="250">
+                </div>
+                
+                <div class="bmi-input-group">
+                    <label for="weight">WEIGHT (kg)</label>
+                    <input type="number" id="weight" placeholder="70" min="20" max="200">
+                </div>
+                
+                <button class="btn btn-primary" id="calculateBmi">CALCULATE BMI</button>
+                
+                <div id="bmiResult" class="bmi-result" style="display: none;">
+                    <div class="bmi-value">
+                        <span id="bmiScore">0</span>
+                    </div>
+                    <p id="bmiCategory">Normal Weight</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">WHAT OUR MEMBERS SAY</h2>
+        
+        <div class="testimonials-slider">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Elite Gym transformed my life! The trainers are incredibly knowledgeable and supportive. Best investment ever!"</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop" alt="John">
+                    <div>
+                        <h4>JOHN SMITH</h4>
+                        <p>Member since 2 years</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Amazing facilities and the personalized programs really work. I achieved my goals in just 4 months!"</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop" alt="Priya">
+                    <div>
+                        <h4>PRIYA PATEL</h4>
+                        <p>Member since 1.5 years</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The community here is incredible. Everyone pushes you to be better. Highly recommended for serious fitness!"</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop" alt="Rajesh">
+                    <div>
+                        <h4>RAJESH KUMAR</h4>
+                        <p>Member since 3 years</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What is included in the Elite membership?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Elite membership includes full gym access, personal trainer sessions, customized nutrition plan, and progress tracking. Perfect for serious fitness enthusiasts.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer trial sessions?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer a 7-day free trial for first-time members. You can explore all facilities and meet our trainers before committing.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Are the trainers certified?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! All our trainers are certified and have years of experience in fitness training and nutrition guidance.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I cancel anytime?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can cancel your membership with 30 days notice. No hidden charges or complicated processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>GET IN TOUCH</h2>
+                <p>Ready to transform your life? Contact us today and start your elite fitness journey.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <h3>📍 LOCATION</h3>
+                        <p>123 Fitness Plaza, Delhi, India</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📞 PHONE</h3>
+                        <p>+91 98765 43210</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>✉️ EMAIL</h3>
+                        <p>info@elitegym.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-socials">
+                    <a href="#" class="social-btn">Facebook</a>
+                    <a href="#" class="social-btn">Instagram</a>
+                    <a href="#" class="social-btn">WhatsApp</a>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ELITE GYM</h3>
+                <p>Your journey to excellence starts here.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>MEMBERSHIP</h4>
+                <ul>
+                    <li><a href="#">Basic Plan</a></li>
+                    <li><a href="#">Elite Plan</a></li>
+                    <li><a href="#">Champion Plan</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>FOLLOW US</h4>
+                <div class="footer-socials">
+                    <a href="#">FB</a>
+                    <a href="#">IG</a>
+                    <a href="#">TW</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Elite Gym. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
